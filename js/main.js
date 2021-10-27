@@ -84,13 +84,11 @@ document.querySelector('.prev').addEventListener('click', function() {
 document.querySelector('.next').addEventListener('click', function() {
     document.querySelector('.image-container.active').classList.remove('active');
     document.querySelector('.thumb.active').classList.remove('active');
-    console.log('Lunghezza array', imageCollection.length);
     if (activeImage < imageCollection.length - 1) {
         activeImage++;
     } else {
         activeImage = 0;
     }
-    console.log(activeImage);
     document.getElementsByClassName('image-container')[activeImage].classList.add('active');
     document.getElementsByClassName('thumb')[activeImage].classList.add('active');
 });
