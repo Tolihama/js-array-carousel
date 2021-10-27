@@ -66,3 +66,29 @@ for (let i = 0; i < imageCollection.length; i++) {
 // Default active
 document.getElementsByClassName('image-container')[activeImage].classList.add('active');
 document.getElementsByClassName('thumb')[activeImage].classList.add('active');
+
+// Prev
+document.querySelector('.prev').addEventListener('click', function() {
+    document.querySelector('.image-container.active').classList.remove('active');
+    document.querySelector('.thumb.active').classList.remove('active');
+    if (activeImage > 0) {
+        activeImage--;
+    } else {
+        activeImage = imageCollection.length - 1;
+    }
+    document.getElementsByClassName('image-container')[activeImage].classList.add('active');
+    document.getElementsByClassName('thumb')[activeImage].classList.add('active');
+});
+
+// Next
+document.querySelector('.next').addEventListener('click', function() {
+    document.querySelector('.image-container.active').classList.remove('active');
+    document.querySelector('.thumb.active').classList.remove('active');
+    if (activeImage < imageCollection.length) {
+        activeImage++;
+    } else {
+        activeImage = 0;
+    }
+    document.getElementsByClassName('image-container')[activeImage].classList.add('active');
+    document.getElementsByClassName('thumb')[activeImage].classList.add('active');
+});
