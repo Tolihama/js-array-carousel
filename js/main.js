@@ -40,3 +40,29 @@ const textCollection = [
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ];
 
+// DOM refs
+const imagesRef = document.querySelector('.images');
+const thumbsRef = document.querySelector('.thumbs');
+
+// Active image index
+let activeImage = 1;
+
+// DOM generator
+for (let i = 0; i < imageCollection.length; i++) {
+    imagesRef.innerHTML += `
+    <div class="image-container">
+        <img src="${imageCollection[i]}" alt="${titleCollection[i]}">
+        <div class="text">
+            <h3>${titleCollection[i]}</h3>
+            <p>${textCollection[i]}</p>
+        </div>
+    </div>`;
+    thumbsRef.innerHTML += `
+    <div class="thumb">
+        <img src="${imageCollection[i]}" alt="${titleCollection[i]}">
+    </div>`;
+}
+
+// Default active
+document.getElementsByClassName('image-container')[activeImage].classList.add('active');
+document.getElementsByClassName('thumb')[activeImage].classList.add('active');
